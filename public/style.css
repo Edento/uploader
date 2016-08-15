@@ -1,0 +1,10 @@
+[ng\:cloak],
+[ng-cloak],
+.ng-cloak {
+    display: none !important;
+}
+
+.imgBox {
+    max-height: 500px;
+    max-width: 700px
+}

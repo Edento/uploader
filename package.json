@@ -1,0 +1,18 @@
+{
+  "name": "bidalgo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "connect-multiparty": "^2.0.0",
+    "express": "^4.14.0",
+    "morgan": "^1.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Eden Toledano",
+  "license": "ISC"
+}
