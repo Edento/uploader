@@ -1,55 +1,54 @@
-<html ng-app="mainApp">
+<!DOCTYPE>
+<html>
 
 <head>
     <title>Image Viewer</title>
     <link rel="stylesheet" href="ext/bootstrap.min.css">
+    <link rel="stylesheet" href="ext/animate.css">
     <link rel="stylesheet" href="style.css">
-
-
 </head>
 
-<body>
+<body ng-app="mainApp">
     <nav class="navbar navbar-default">
         <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">Image Viewer</a>
             </div>
-            <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">About</a></li>
-                </ul>
-            </div>-->
         </div>
     </nav>
 
     <!-- APP -->
-    <div-->
-        <div class="container" ng-controller="mainCtrl" ng-cloak>
-
-            <p>Hello some-interviewer, please select an image to upload and view by the following rules:</p>
-            <ul ng-cloak ng-repeat="rule in rules">
-                <li>{{ rule }}</li>
-            </ul><br>
-
+    <section class="container main-section" ng-controller="mainCtrl" ng-cloak>
+        <h3>Hello, somebody :)</h3>
+        <h4>Please select an image to upload and view by the following rules:</h4>
+        <ul ng-repeat="rule in rules">
+            <li>{{ rule }}</li>
+        </ul>
+        <div class="browse">
             <label class="btn btn-primary btn-file">
-            Browse <input type="file" ngf-select ng-model="picFile" name="file" accept="image/*"  style="display: none;">
-        </label> <span>{{picFile.name || "No file chosen"}}</span>
-            <br>
-            <!--block and change class when no file is chosen-->
-            <button ng-click="uploadPic(picFile)" ng-disabled="!picFile" ng-class="{true: 'btn btn-primary', false: 'btn btn-primary disabled'}[!!picFile]">Upload and view</button>
-
-            <div ng-cloak class="alert alert-danger" role="alert" ng-show="!isValid.sizeValid">Please upload file up to 2MB size</div>
-
-            <hr>
-            <img class=" imgBox " ng-src="{{ imageService.link }} " ng-if="imageService.link " />
-
+                    Browse <input class="hidden" type="file" ngf-select ng-model="picFile" name="file" accept="image/*">
+                </label>
+            <span>{{picFile.name || "No file chosen"}}</span>
         </div>
+        <button ng-click="uploadPic(picFile)" ng-disabled="!picFile" class="btn btn-primary" ng-class="{'disabled': !picFile}">Upload and view</button>
+        <!-- WHY are the alerts positioned in the same line?-->
+        <div class="alert alert-danger fade in" ng-show="!isValidSize(picFile)">
+            Please upload file up to 500KB size (current size: {{picFile.size/1000}}KB)
+        </div>
+        <div class="alert alert-danger fade in" ng-show="uploadFailed">
+            Upload Failed. Please reload and try again
+        </div>
+        <hr>
+        <article class="image-container">
+            <img class="image-content" ng-src="{{ imageService.link }}" ng-if="imageService.link" ng-class="{'animated fadeInUp': imageChanged}" />
+        </article>
+    </section>
 
-        <script src="/ext/angular.js"></script>
-        <script src="/ext/ng-file-upload.js "></script>
-        <script src="app.js "></script>
-        <script src="imageService.js "></script>
+    <script src="/ext/angular.js"></script>
+    <script src="/ext/ng-file-upload.js "></script>
+    <script src="app.js "></script>
+    <script src="controller.js "></script>
+    <script src="imageService.js"></script>
 
 </body>
 

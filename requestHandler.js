@@ -12,14 +12,16 @@ var upload = function(req, res) {
     console.log("uploading file " + fileName + " to the server...");
 
     fs.rename(tempPath, fullPath, function(err) {
-        if (err) throw err;
+        if (err){
+            console.log(err);
+            throw err;
+        } 
         // delete the temporary file from temp directory
-        // fs.unlink(tempPath, function() {
-        //     if (err) throw err;
-        //     console.log('File uploaded to: ' + fullPath + ' - ' + file.size + ' bytes');
-        //     res.json({ link: relPath });
-        // });
-        console.log('test');
+        fs.unlink(tempPath, function() {
+            if (err) throw err;
+            console.log('File uploaded to: ' + fullPath + ' - ' + file.size + ' bytes');
+            res.json({ link: relPath });
+        });
     });
 };
 

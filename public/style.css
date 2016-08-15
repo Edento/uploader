@@ -1,10 +1,35 @@
+/*  style.css  */
+
+.main-section {
+    margin: auto 0 auto 10px;
+    width: 100%;
+}
+
+.browse {
+    margin: 20px 0 5px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-content {
+    max-height: 500px;
+    max-width: 700px;
+}
+
+.alert {
+    display: inline-block;
+}
+
 [ng\:cloak],
 [ng-cloak],
 .ng-cloak {
     display: none !important;
-}
-
-.imgBox {
-    max-height: 500px;
-    max-width: 700px
 }
