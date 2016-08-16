@@ -14,9 +14,16 @@ How to install:
 
 I have used <code>ng-file-upload</code> on the client side with Angular. Read more <a href="https://github.com/danialfarid/ng-file-upload">here</a>
 
-Use npm to install <code>node_modules</code> folder:
+After clone, use npm to install <code>node_modules</code> folder:
 
 <code> cd your_dirname </code>
 
 <code> npm install </code>
+
+Run node:
+
+<code> node server.js </code>
+
+
+
 
