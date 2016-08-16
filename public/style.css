@@ -24,8 +24,10 @@
     max-width: 700px;
 }
 
+
 .alert {
     display: inline-block;
+    margin-top: 5px;
 }
 
 [ng\:cloak],

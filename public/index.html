@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="ext/bootstrap.min.css">
     <link rel="stylesheet" href="ext/animate.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/uploads/favicon.ico" />
 </head>
 
 <body ng-app="mainApp">
@@ -30,8 +31,10 @@
                 </label>
             <span>{{picFile.name || "No file chosen"}}</span>
         </div>
-        <button ng-click="uploadPic(picFile)" ng-disabled="!picFile" class="btn btn-primary" ng-class="{'disabled': !picFile}">Upload and view</button>
-        <!-- WHY are the alerts positioned in the same line?-->
+        <div class="upload">
+            <button ng-click="uploadPic(picFile)" ng-disabled="!picFile" class="btn btn-primary" ng-class="{'disabled': !picFile}">Upload and view</button>
+            <!-- WHY are the alerts positioned in the same line?-->
+        </div>
         <div class="alert alert-danger fade in" ng-show="!isValidSize(picFile)">
             Please upload file up to 500KB size (current size: {{picFile.size/1000}}KB)
         </div>
