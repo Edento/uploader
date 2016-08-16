@@ -33,7 +33,6 @@
         </div>
         <div class="upload">
             <button ng-click="uploadPic(picFile)" ng-disabled="!picFile" class="btn btn-primary" ng-class="{'disabled': !picFile}">Upload and view</button>
-            <!-- WHY are the alerts positioned in the same line?-->
         </div>
         <div class="alert alert-danger fade in" ng-show="!isValidSize(picFile)">
             Please upload file up to 500KB size (current size: {{picFile.size/1000}}KB)
