@@ -1,5 +1,6 @@
 'use strict';
 var fs = require('fs');
+var mv = require('mv');
 
 var upload = function(req, res) {
 
@@ -11,18 +12,30 @@ var upload = function(req, res) {
 
     console.log("uploading file " + fileName + " to the server...");
 
-    fs.rename(tempPath, fullPath, function(err) {
-        if (err){
+    // fs.rename(tempPath, fullPath, function(err) {
+    //     if (err) {
+    //         console.log(err);
+    //         throw err;
+    //     }
+    //     // delete the temporary file from temp directory
+    //     fs.unlink(tempPath, function() {
+    //         if (err) throw err;
+    //         console.log('File uploaded to: ' + fullPath + ' - ' + file.size + ' bytes');
+    //         res.json({ link: relPath });
+    //     });
+    // });
+
+    // Trying something else for heroku deployment:
+    mv(tempPath, fullPath, function(err) {
+        if (err) {
             console.log(err);
             throw err;
-        } 
-        // delete the temporary file from temp directory
-        fs.unlink(tempPath, function() {
-            if (err) throw err;
-            console.log('File uploaded to: ' + fullPath + ' - ' + file.size + ' bytes');
-            res.json({ link: relPath });
-        });
+        } else {
+            console.log('file moved successfully');
+             res.json({ link: relPath });
+        }
     });
+
 };
 
 
