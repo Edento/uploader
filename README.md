@@ -8,7 +8,7 @@ if another image is being uploaded, once it finished, it will be replced in the 
 Limitations: 
 * upload and view one file at a time
 * Altho files are saved, only the last image will be viewed.
-* No db is being used in this app, therefore it can't be deployed on Heroku (saving files is problematic)
+* No db is being used in this app
 
 How to install:
 
