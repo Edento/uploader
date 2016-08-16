@@ -16,14 +16,13 @@ app.controller('mainCtrl', ['$scope', 'imageService', function($scope, imageServ
             imageService.uploadPic($scope.picFile, function(err) { //UPLOAD!
                 if (!err) {
                     $scope.imageChanged = true;
+                    $scope.uploadFailed = false;
                 } else {
                     $scope.uploadFailed = true;
-                    console.log('controller message: upload failed'); // TODO: PROMPT FAILURE TO CLIENT INSTED OF CONSOLE.LOG
                 }
             });
-        } else {
-            console.log("Picture validation succeeded, please pick another one...");
         }
+        // if file validation failed, an error will be shown to the user
     };
     //  This method checks if the user picked a file, and validates its size. returns true when file is valid
     var isValid = function(file) {
